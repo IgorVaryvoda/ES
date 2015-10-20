@@ -2,13 +2,13 @@
 lock '3.3.5'
 
 set :application, 'essaystation'
-set :repo_url, 'git@git.themindstudios.com:web/essaystation-com.git'
+set :repo_url, 'https://github.com/chestyle/ES.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/var/www/essaystation'
+set :deploy_to, '/var/www/html/ES'
 
 # Default value for :scm is :git
 set :scm, :git
@@ -35,7 +35,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('bin', 'log', 'tmp/pids', 'tmp/ca
 set :keep_releases, 5
 
 set :ssh_options, {:forward_agent => true}
-set :tmp_dir, '/home/essay/tmp'
+set :tmp_dir, '/home/che/tmp'
 set :rvm_ruby_version, 'ruby-2.1.2@essay-station'
 set :rvm_custom_path, '~/.rvm'
 
