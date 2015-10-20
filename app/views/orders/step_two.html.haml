@@ -1,0 +1,51 @@
+.container-steps
+  .content
+    .state
+      .sign.ok
+      .section
+        1. Calculate price
+      .sign
+      .section.active
+        2. Casting authors. Paper details
+      .sign
+      .section
+        3. Payment
+    .body
+      .authors
+        .head
+          .bold
+            = @order.type_of_paper
+          .normal
+            = @order.academic_level.capitalize
+          .bold
+            = "Total price: $#{@order.price}"
+        .body
+          .title
+            Avaliable authors
+          .list
+            - @authors.each do |author|
+              .item.hidden
+                .name
+                  = author.full_name
+                .completed-orders
+                  Completed orders:
+                  = author.completed_orders
+                %div{:class => "rate star_#{author.get_rating(false)}"}
+                  %span.number #{author.get_rating(true)}
+            .searching
+              = image_tag 'loader.gif', :class => 'loader'
+              %span.text Searching
+      .details
+        = render "orders/order_update_form"
+
+    :javascript
+      var offset1 = 0, offset2 = 2;
+      var searching = setInterval(function(){
+        if($('.hidden').length == 0){
+          clearInterval(searching);
+          $('.searching').remove();
+        }else{
+          $('.hidden').slice(offset1, offset2).show('fast','swing');
+          $('.hidden').slice(offset1, offset2).removeClass('hidden');
+        }
+      }, 2000);

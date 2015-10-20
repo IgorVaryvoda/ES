@@ -1,0 +1,25 @@
+!!! 5
+%html
+  %head
+    %title EssayStation
+    %link{:href => 'http://fonts.googleapis.com/css?family=Open+Sans:600,400,300,700&subset=cyrillic,latin', :rel => 'stylesheet', :type => 'text/css'}
+
+  %body
+    .email
+      .header{:style=>'background:#acc590;width:100%;height:80px;text-align:center;'}
+        %img{:src=>'http://essay.themindstudios.com/logo.png',:style=>'padding:0px 0px;'}
+      .body{:style=>'background:#e9e9e9;height:100%;width:100%;'}
+        .container{:style=>'width:450px;margin:auto;text-align:center;padding-bottom:60px;'}
+          .title{:style=>'font-weight:600;font-size:24px;padding-top: 35px;padding-bottom: 25px;color:#675a5a;'}
+            Payment successfully accepted
+          .content{:style=>'width:100%;min-height:280px;background:white;'}
+            .id{:style=>'font-size:16px;padding-top:30px;padding-bottom:20px;'}
+              .text{:style=>'color:#ccc4c7;display: inline-block;'}
+                Order ID
+              .number{:style=>'color:#675a5a;display: inline-block;'}
+                = "#{'#'+@order.id.to_s}"
+            .link{:style=>'width:100%;margin-top:50px;text-align:center;font-size:16px;color:#ccc4c7;'}
+              You can check order details in the Admin Panel:
+              %br
+              %a{:href=>'http://essaystation.com/admin/order/'+@order.id.to_s, :style=>'position:relative;top:20px;'}
+                #{'link_to_order_in_admin_panel'}

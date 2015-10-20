@@ -1,0 +1,95 @@
+.header{
+  font-family: 'Open Sans', sans-serif;
+  height: 100px;
+  width: 100%;
+  background: #acc590;
+  z-index: 100;
+  position: relative;
+
+  .content{
+    width: 100%;
+    height: 100%;
+    width: 960px;
+    margin: auto;
+
+    .account{
+      float: right;
+      display: inline-block;
+      padding: 15px;
+      text-decoration: none;
+      color: #647d54;
+      font-size: 14px;
+      margin-top: 8px;
+      margin-left: 0px;
+
+      &:before{
+        content: '';
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        margin-left: -25px;
+        background-image: url(image_path("icons.png"));
+        background-position: 0px 1px;
+      }
+
+      &:hover:before{
+        background-position: 0px -24px;
+      }
+    }
+
+    .account-logout{
+      float: right;
+      display: inline-block;
+      padding: 15px;
+      text-decoration: none;
+      color: #647d54;
+      font-size: 14px;
+      margin-top: 8px;
+      margin-left: 0px;
+
+      &:after{
+        content: '';
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        margin-left: 3px;
+        background-image: url(image_path("icons.png"));
+        background-position: 0px -373px;
+      }
+
+      &:hover:after{
+        background-position: 0px -411px;
+      }
+    }
+
+    ul{
+      display: inline-block;
+      float: right;
+      list-style: none;
+      position: relative;
+      top: 45px;
+      left: 105px;
+
+      &.signed{
+        top: -12px;
+        left: 27px;
+      }
+
+      li{display: inline;}
+
+      a{
+        padding: 15px;
+        text-decoration: none;
+        color: #647d54;
+        font-size: 18px;
+      }
+    }
+
+    a:hover{color: #314925; }
+  }
+
+  .logo > img{
+    margin-top: 12px;
+    float: left;
+  }
+}

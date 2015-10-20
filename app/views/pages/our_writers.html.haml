@@ -1,0 +1,24 @@
+.container
+  .content
+    .info
+      .title
+        Our Writers
+      .authors
+        -@authors.each do |author|
+          .author-item
+            = image_tag "#{author.avatar}", :class => 'avatar'
+            .information
+              .name
+                = author.full_name
+              .discipline
+                = author.discipline
+              .description
+                = author.description[0,100]+'...'
+              .bottom
+                %div{:class => "author rate star_#{author.get_rating(false)}"}
+                  %span.number #{author.get_rating(true)}
+                .completed
+                  Completed orders:
+                  = author.completed_orders
+    .pages
+      = render "orders/order_form"

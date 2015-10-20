@@ -1,0 +1,324 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ *= require jquery.arcticmodal-0.3
+ *= require dark
+ *= require simple
+ */
+
+$green: #acc590;
+$grey-bg: #edecee;
+$text-grey: #848484;
+
+@import "header";
+@import "welcome";
+@import "pages";
+@import "orders";
+
+body{
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  margin: auto;
+  font-family: 'Open Sans', sans-serif;
+
+  .container{
+    width: 100%;
+    height: 100%;
+
+    .content {
+      height: 100%;
+      width: 960px;
+      margin: auto;
+      position: relative;
+    }
+
+  }
+
+  .icon{
+    width: 27px;
+    height: 27px;
+    display: inline-block;
+    background-image: url(image_path("icons.png"));
+  }
+
+  .rate{
+    display: inline-block;
+    width: 100px;
+    height: 20px;
+    background-image: url(image_path("stars.png"));
+    color: #6f6e75;
+
+    .number{
+      position: relative;
+      float: right;
+      left: 20px;
+      color: #6f6e75;
+      font-weight: 600;
+    }
+
+    .number_welcome{
+      position: relative;
+      float: right;
+      left: 10px;
+      color: #6f6e75;
+      font-weight: 600;
+    }
+
+    &:after{
+      margin-left: 102px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    &.star_50 {
+      background-position: 0px 0px;
+    }
+    &.star_45 {
+      background-position: 0px -20px;
+    }
+    &.star_40 {
+      background-position: 0px -40px;
+    }
+    &.star_35 {
+      background-position: 0px -60px;
+    }
+    &.star_30 {
+      background-position: 0px -80px;
+    }
+    &.star_25 {
+      background-position: 0px -100px;
+    }
+    &.star_20 {
+      background-position: 0px -120px;
+    }
+    &.star_15 {
+      background-position: 0px -140px;
+    }
+    &.star_10 {
+      background-position: 0px -160px;
+    }
+    &.star_5 {
+      background-position: 0px -180px;
+    }
+  }
+
+  .error-field{
+    border: 1px solid #ff1d04 !important;
+  }
+
+  .disabled{
+    pointer-events: none;
+  }
+
+  [type="submit"]{
+    cursor: pointer;
+  }
+
+  .loader{
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+  }
+
+  select{border-radius: 0px;}
+
+  .facebook-btn{
+    background: #97a3ca;
+    color: #ffffff;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+
+    &.pop-up{
+      width: 277px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    &:hover{
+      background: #7a84a3;
+    }
+  }
+
+  .checkout-btn{
+    background: #f7846a;
+    color: #ffffff;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+
+    &.pop-up{
+      width: 277px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 18px;
+      font-weight: 700;
+      border: none;
+    }
+
+    &:hover{
+      background: #d26f5b;
+    }
+  }
+
+  .modal-popup{
+    display: none;
+  }
+  #sign-in{
+    width: 330px;
+    min-height: 375px;
+    border-radius: 0px;
+    box-shadow: none;
+
+    .box-modal_close.arcticmodal-close.close{
+      background-image: url(image_path("icons.png"));
+      background-position: 0px -669px;
+      background-repeat: no-repeat;
+      width: 20px;
+      height: 20px;
+      float: right;
+      right: 20px;
+      top: 15px;
+      position: absolute;
+    }
+
+    .content{
+      width: 285px;
+      min-height: 285px;
+      height: 100%;
+      margin: 25px 0px 25px 25px;
+
+      .title {
+        color: #3d3d3d;
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .note{
+        font-size: 14px;
+        color: #887a7a;
+        margin-top: 10px;
+      }
+
+      .topic{
+        margin-top: 15px;
+        font-size: 16px;
+        font-weight: 700;
+        color: #6f6e75;
+      }
+
+      .short-info{
+        color: #9898a1;
+        font-size: 16px;
+      }
+
+      .price{
+        font-size: 19px;
+        font-weight: 700;
+        margin-top: 15px;
+        color: #6f6e75;
+      }
+
+      .sign-btn{
+        border: 1px solid #c5adac;
+        width: 100%;
+        max-width: 263px;
+        padding: 2px;
+        margin-bottom: 5px;
+        line-height: 30px;
+        padding-left: 10px;
+        color: #887a7a;
+        font-size: 18px;
+
+        &[type="email"]{
+          margin-top: 15px;
+        }
+
+        &::-webkit-input-placeholder {font-family: 'Open Sans';font-size: 16px;color: #c2b4b4;}
+        &::-moz-placeholder          {font-family: 'Open Sans';font-size: 16px;color: #c2b4b4;}/* Firefox 19+ */
+        &:-moz-placeholder           {font-family: 'Open Sans';font-size: 16px;color: #c2b4b4;}/* Firefox 18- */
+        &:-ms-input-placeholder      {font-family: 'Open Sans';font-size: 16px;color: #c2b4b4;}
+      }
+
+      .or{
+        position: relative;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        width: 277px;
+        height: 1px;
+        background: #ebe3e3;
+        text-align: center;
+
+        .word{
+          width: 46px;
+          height: 20px;
+          line-height: 20px;
+          position: absolute;
+          text-align: center;
+          bottom: -9px;
+          margin-left: 107px;
+          background: #ffffff;
+          color: #887a7a;
+        }
+      }
+
+      .login{
+        text-decoration: none;
+        width: 260px;
+        height: 40px;
+        line-height: 40px;
+        margin-top: 40px;
+      }
+    }
+  }
+
+  .errors-form{
+    color: red;
+    font-weight: 600;
+    margin-bottom: 15px;
+    background: #ffc6a9;
+    width: 100%;
+    max-width: 276px;
+    line-height: 30px;
+
+    >ul{
+      list-style: none;
+      padding-left: 30px;
+
+      .close-errors{
+        position: absolute;
+        left: 50px;
+        color: rgb(255, 107, 107);
+        font-weight: 700;
+        font-size: 13px;
+
+        &.sign-up{
+          left: 180px;
+        }
+
+        &:hover{
+          cursor: pointer;
+          color: rgb(255, 77, 79);
+        }
+      }
+    }
+  }
+
+  .hidden{
+    display: none;
+  }
+}

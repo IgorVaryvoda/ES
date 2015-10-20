@@ -1,0 +1,59 @@
+.container-order
+  .user
+    .headline
+      .page-title
+        Order Details
+      = link_to '+ NEW ORDER', root_path, :class => 'new'
+    .content
+      = link_to '< Back to orders', orders_list_path, :class => 'back-order'
+      .row
+        .name ID
+        .data
+          = "##{@order.id}"
+      .row
+        .name Academic level
+        .data
+          = @order.academic_level.capitalize
+      .row
+        .name Discipline
+        .data
+          = @order.discipline
+      .row
+        .name Pages
+        .data
+          = @order.pages
+      .row
+        .name Deadline
+        .data
+          %span.bold
+            = @order.get_deadline[0]
+          = @order.get_deadline[1]
+      .row
+        .name Type of paper
+        .data
+          = @order.type_of_paper
+      .row
+        .name Topic
+        .data
+          = @order.topic
+      .row
+        .name Status
+        .data
+          %span.status{:class=>"#{@order.aasm_state}"}= @order.show_state
+          -if @order.aasm_state.include?'new_order'
+            = link_to 'Complete the order', step_three_path(@order.public_id), :class => 'complete-order'
+      .row
+        .name Price
+        .data
+          = "$#{@order.price}"
+      .row
+        .name.top Details
+        .data
+          = @order.details
+      -if !@order.resources.empty?
+        .row
+          .name.top Uploaded materials
+          .data
+            -@order.resources.each do |document|
+              %span.materials= document.document_file_name
+

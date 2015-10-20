@@ -1,0 +1,36 @@
+.title_order
+  Place new order
+= form_for @order, html: {:id => 'order'} do |f|
+  .discount
+  .body
+    .describe
+      Academic level
+    .buttons.level
+      = f.label :undergraduate, :class => 'radio active'
+      = f.radio_button :academic_level, 'undergraduate', :checked => true, :id => 'order_undergraduate'
+      = f.label :bachelor, :class => 'radio'
+      = f.radio_button :academic_level, 'bachelor', :id => 'order_bachelor'
+      = f.label :professional, :class => 'radio'
+      = f.radio_button :academic_level, 'professional', :id => 'order_professional'
+    .describe
+      Type of paper
+    .buttons
+      = f.select(:type_of_paper, @order.type_of_paper_array,  {}, {:class => 'grey'})
+    .describe.vertical
+      Pages
+    .buttons.page
+      .pages-steps
+        .btn.minus.left -
+        = f.text_field :pages, :class => 'count', :pattern => "[0-9]*", :value => 1
+        .btn.plus.right +
+      .words
+        275 words
+    .describe
+      Deadline
+    .buttons
+      = f.select(:deadline, @order.deadline_array, {:selected => @order.deadline_array.last},  :class => 'grey deadline-empty')
+    .border
+    .price
+      Total price: $10
+    = f.submit 'CONTINUE', :class => 'continue'
+    = link_to '', calculate_path, :class => 'disappear'

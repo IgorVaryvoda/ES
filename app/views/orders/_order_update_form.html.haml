@@ -1,0 +1,48 @@
+= form_for @order, html: {:id => 'update', :multipart => true} do |f|
+  .body
+    .row
+      .describe
+        Discipline
+      .buttons
+        = f.select(:discipline, @order.disciplines_list, {prompt: 'Select one'})
+        %span.arrow
+    .row
+      .describe
+        Topic
+      .buttons
+        = f.text_field :topic, :placeholder => "Any topic (Writers's choice)"
+    .row
+      .describe
+        Details
+      .buttons
+        = f.text_area :details, :placeholder => "May include structure, or any other details"
+    .row
+      .upload
+        .text
+          Upload additional materials
+        .mini-text
+          Total size of files uploaded should not exceed 50 Mb
+      .files-area
+        .file
+          .select
+            .text
+              Choose File
+            = fields_for 'resources[document]', nil do |file|
+              = file.file_field '', type: :file
+
+
+    = f.submit 'CONTINUE', :class => 'continue'
+    .accept
+      We accept payment via
+      = image_tag 'paypal-logo.png', :class => 'logo-paypal'
+
+    :javascript
+      $(document).on('change', 'input[type=file]', function(e){
+
+        var input =  $(this).closest('.file').clone().find('input').attr('id', '__' + Math.random()).val(null).closest('.file');
+        $(this).closest('.files-area').append(input);
+
+        var filename = $(this).val().split('\\').pop();
+        $(this).closest('.select').addClass('added').closest('.file').addClass('added').append('<div class="remove"></div>').find('.text').text(filename).addClass('added');
+
+      })

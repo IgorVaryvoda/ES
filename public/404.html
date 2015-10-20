@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The page you were looking for doesn't exist (404)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:600,400,300,700&subset=cyrillic,latin">
+  <style>
+    body {
+      background-color: #EFEFEF;
+      color: #2E2F30;
+      text-align: center;
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+    }
+
+    .header{
+      height: 100px;
+      width: 100%;
+      background: #acc590;
+      position: relative;
+    }
+
+    .logo-error{
+      margin-top: 15px;
+    }
+
+    .body{
+      background: #e9e9e9;
+      padding: 30px 0px 30px 0px;
+    }
+
+    .content{
+      background: #ffffff;
+      width: 100%;
+      max-width: 850px;
+      min-height: 300px;
+      margin: auto;
+      padding-top: 1px;
+      padding-bottom: 35px;
+    }
+
+    .content h2{
+      color: #918488
+    }
+
+    .content p{
+      margin: 30px 0px;
+      color: #967a82;
+    }
+
+    .content .back-error{
+      background: #f7846a;
+      padding: 10px 20px 10px 30px;
+      font-size: 25px;
+      text-align: center;
+      color: white;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-decoration: none;
+      display: block;
+      width: 420px;
+      border: none;
+      margin: auto;
+    }
+
+    .content .back-error:hover {
+      background: #d26f5b;
+    }
+
+    .img-error{
+      position: relative;
+      -webkit-perspective: 150px; /* Chrome, Safari, Opera  */
+      perspective: 150px;
+    }
+    .img-error .type-error{
+      font-size: 35px;
+      font-weight: 700;
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      left: 500px;
+      bottom: 20px;
+      -webkit-transform: rotateX(65deg); /* Chrome, Safari, Opera  */
+      transform: rotateX(65deg);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <a href="/">
+      <img src="/logo.png" class="logo-error" alt="logo" title="Essay"/>
+    </a>
+  </div>
+  <div class="body">
+    <div class="content">
+      <h2>Ooops! Something went wrong.</br> The page you were looking for doesn't exist.</h2>
+      <p>You may have mistyped the address or the page may have moved.</p>
+      <div class="img-error">
+        <img src="/broken_pencil.png" alt="broken_pencil" title="Essay">
+        <div class="type-error">404</div>
+      </div>
+      <a href="/" class="back-error">BACK TO MAIN PAGE</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# Be sure to restart your server when you modify this file.
+
+# Add new mime types for use in respond_to blocks:
+# Mime::Type.register "text/richtext", :rtf
+Rack::Mime::MIME_TYPES.merge!({
+                                  ".doc"     => "application/msword",
+                                  ".docx"     => "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                                  ".xlsx"     => "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                              })

@@ -1,0 +1,106 @@
+.container-order
+  .user
+    .headline
+      .page-title-success
+        Thank You! Your Order Has Been Successfully Paid!
+    .content
+      = link_to '< Back to orders', orders_list_path, :class => 'back-order'
+      .row
+        .name ID
+        .data
+          = "##{@order.id}"
+      .row
+        .name Academic level
+        .data
+          = @order.academic_level.capitalize
+      .row
+        .name Discipline
+        .data
+          = @order.discipline
+      .row
+        .name Pages
+        .data
+          = @order.pages
+      .row
+        .name Deadline
+        .data
+          %span.bold
+            = @order.get_deadline[0]
+          = @order.get_deadline[1]
+      .row
+        .name Type of paper
+        .data
+          = @order.type_of_paper
+      .row
+        .name Topic
+        .data
+          = @order.topic
+      .row
+        .name Status
+        .data
+          %span.status{:class=>"#{@order.aasm_state}"}= @order.show_state
+          -if @order.aasm_state.include?'new_order'
+            = link_to 'Complete the order', step_three_path(@order.public_id), :class => 'complete-order'
+      .row
+        .name Price
+        .data
+          = "$#{@order.price}"
+      .row
+        .name.top Details
+        .data
+          = @order.details
+      -if !@order.resources.empty?
+        .row
+          .name.top Uploaded materials
+          .data
+            -@order.resources.each do |document|
+              %span.materials= document.document_file_name
+  %script{:src=>"http://tracking.directrdr.com/cpa-track.php?a=-7332012497053219965~4110367502553989209", :type=>"text/javascript"}
+  :javascript
+    var google_conversion_id = 950861411;
+    var google_conversion_language = "en";
+    var google_conversion_format = "3";
+    var google_conversion_color = "ffffff";
+    var google_conversion_label = "gRMBCL_zuFoQ4_yzxQM";
+    var google_remarketing_only = false;
+  %script{:src=>"//www.googleadservices.com/pagead/conversion.js", :type=>"text/javascript"}
+  %noscript
+    %div{:style=>"display:inline;"}
+      %img{:height=>"1", :width=>"1", :style=>"border-style:none;", :alt=>"", :src=>"//www.googleadservices.com/pagead/conversion/950861411/?label=gRMBCL_zuFoQ4_yzxQM&amp;guid=ON&amp;script=0"}
+  :javascript
+    var bdv_Performance_Ver = "1.0";
+    var bdv_AID = 283907805;
+    var bdv_protocol="http://";
+    if(location.protocol == "https:")
+    {
+      bdv_protocol="https://";
+    }
+    var bdv_queryStr = "?" + "ver=" + bdv_Performance_Ver + "&AID=" + bdv_AID +"&ref=" + escape(document.referrer);
+    var bdv_imageUrl = bdv_protocol + "secure.bidvertiser.com/performance/pc.dbm" + bdv_queryStr;
+    var bdv_imageObject = new Image();
+    bdv_imageObject.src = bdv_imageUrl;
+  %noscript
+    %img{:height=>1, :width=>1, :border=>0, :src=>"https://secure.bidvertiser.com/performance/pc.dbm?ver=1.0&AID=283907805"}
+  :javascript
+    var _7search_conversion_advid = 228630;
+    var _7search_conversion_type = "purchase";
+    var _7search_conversion_value = 1;
+  %script{:src=>"http://conversion.7search.com/conversion/v1/conversion.js", :type=>"text/javascript"}
+  %noscript
+    %img{:width=>"1", :height=>"1", :border=>"0", :src=>"http://conversion.7search.com/conversion/v1/?advid=228630&urlid=&type=purchase&value=1&noscript=1"}
+  :javascript
+    (function() {
+      var _fbq = window._fbq || (window._fbq = []);
+      if (!_fbq.loaded) {
+        var fbds = document.createElement('script');
+        fbds.async = true;
+        fbds.src = '//connect.facebook.net/en_US/fbds.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(fbds, s);
+        _fbq.loaded = true;
+      }
+      })();
+      window._fbq = window._fbq || [];
+      window._fbq.push(['track', '6021464528829', {'value':'0.01','currency':'USD'}]);
+  %noscript
+    %img{'height'=>"1", 'width'=>"1", 'alt'=>"", 'style'=>"display:none", 'src'=>"https://www.facebook.com/tr?ev=6021464528829&amp;cd[value]=0.01&amp;cd[currency]=USD&amp;noscript=1"}

@@ -1,0 +1,218 @@
+.container-order{
+  background: #e9e9e9;
+
+  .user{
+    width: 850px;
+    min-height: 540px;
+    margin: auto;
+    padding-bottom: 45px;
+
+    .headline{
+      width: 100%;
+      color: #7d6d72;
+      font-size: 18px;
+      font-weight: 600;
+      height: 30px;
+      line-height: 30px;
+      padding-top: 30px;
+      padding-bottom: 15px;
+
+      .page-title-success{
+        text-align: center;
+        display: block;
+        color: #7b6b6e;
+        font-weight: 700;
+        font-size: 18px;
+      }
+
+      .page-title{
+        float: left;
+        display: inline-block;
+      }
+
+      .new{
+        float: right;
+        display: inline-block;
+        width: 160px;
+        height: 30px;
+        line-height: 30px;
+        background: #f78267;
+        text-decoration: none;
+        color: #ffffff;
+        text-align: center;
+
+        &:hover{
+          background: #cf6c57;
+        }
+      }
+    }
+    .content{
+      width: 100%;
+      height: 100%;
+      min-height: 295px;
+      background: #ffffff;
+
+      table{
+        width: 780px;
+        margin: auto;
+        border-collapse: separate;
+        border-spacing: 0px 2px;
+
+        .head {
+          text-align: left;
+
+          .id{
+            text-align: center;
+          }
+          th {
+            color: #c5babe;
+            font-size: 12px;
+          }
+        }
+
+        tr.data{
+          cursor: pointer;
+          height: 70px;
+          background: #f4f4f4;
+          color: #837878;
+
+          &:nth-child(2n+3){
+            >td {
+              background: #ffffff;
+            }
+          }
+
+          &:hover{
+            >td {
+              background: #f0eded;
+              border-top: 1px solid #d7d1d0;
+              border-bottom: 1px solid #d7d1d0;
+
+              &:first-child{
+                border-left: 1px solid #d7d1d0;
+              }
+              &:last-child{
+                border-right: 1px solid #d7d1d0;
+              }
+            }
+          }
+          >td {
+            background: #f4f4f4;
+            border-top: 1px solid transparent;
+            border-bottom: 1px solid transparent;
+
+            &:first-child{
+              border-left: 1px solid transparent;
+            }
+            &:last-child{
+              border-right: 1px solid transparent;
+            }
+            .bold{
+              font-weight: 700;
+            }
+          }
+          td.first{
+            text-align: center;
+          }
+
+          td.topic{
+            width: 300px;
+          }
+          td.deadline{
+            width: 200px;
+          }
+        }
+      }
+
+      .back-order{
+        display: inline-block;
+        width: 120px;
+        height: 25px;
+        line-height: 25px;
+        background: #f4f4f4;
+        color: #837878;
+        text-decoration: none;
+        position: relative;
+        top: -20px;
+        left: 35px;
+        text-align: center;
+
+        &:hover{
+          background: #e6e6e6;
+        }
+      }
+
+      .complete-order{
+        display: inline-block;
+        width: 150px;
+        height: 25px;
+        line-height: 25px;
+        color: #a55e00;
+        position: relative;
+        top: 0px;
+        left: 11px;
+        text-align: center;
+
+        &:hover{
+          color: #673b00;
+        }
+      }
+
+      .row{
+        display: inline-block;
+        width: 780px;
+        height: 25px;
+        line-height: 25px;
+        padding-left: 21px;
+
+        .name{
+          display: inline-block;
+          color: #afa2a7;
+          width: 135px;
+          text-align: right;
+
+          &.top{
+            vertical-align: top;
+          }
+        }
+        .data{
+          display: inline-block;
+          width: 600px;
+          color: #675a5a;
+          padding-left: 20px;
+          text-align: left;
+
+          span{
+            &.materials{padding-right: 10px;}
+
+            &.status{
+              padding:2px 5px;
+              color: #ffffff;
+
+              &.new_order{
+                background: #ccb079;
+              }
+              &.payment_pending{
+                background: #DBD106;
+              }
+              &.in_progress{
+                background: #acc590;
+              }
+              &.delivered{
+                background: #008bb4;
+              }
+              &.correcting{
+                background: #f9861e;
+              }
+              &.completed{
+                background: #00b43d;
+              }
+            }
+
+            &.bold{font-weight: 700;}
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+.order-bg
+  .order
+    .title
+      Order an Essay within 3 Clicks!
+    = render "orders/order_form"
+
+.choose-us-bg
+  .choose-us
+    .title
+      Why choose us?
+    .body
+      %div
+        .img.per-page
+        .text
+          %p Prices start at
+          %p $10 per page
+      %div
+        .img.clock
+        .text
+          %p On time
+          %p delivery
+      %div
+        .img.unique
+        .text
+          %p 100% plagiarism
+          %p free
+
+.testimonials-bg
+  .testimonials
+    .title
+      What do our clients say?
+    .clients
+      %div
+        .img
+          = image_tag 'authors/author_1.jpg'
+        .comments
+          Great essay writing service! I got everything I was looking for – top quality, individual and creative approach, timely delivery.
+        .name
+          = '— Huan Newson'
+        .rate.star_45
+          %span.number 4.4
+      %div
+        .img
+          = image_tag 'authors/author_2.jpg'
+        .comments
+          You saved my time and money! The results fully met my expectations. Advise to everyone, who finds essay writing very complicated.
+        .name
+          = '— Monica Santa Belucci'
+        .rate.star_50
+          %span.number_welcome 5
+      %div
+        .img
+          = image_tag 'authors/author_3.jpg'
+        .comments
+          Easy and affordable. Just place an order and get 100% quality materials. Now I have more time for things I really love and care about. The best essay writing website ever!
+        .name
+          = '— Sara Parker'
+        .rate.star_35
+          %span.number 3.6
+
+.footer-bg
+  .footer
+    .title
+      Ready to try?
+    = link_to 'PLACE ORDER', '#', :class => 'place-order'
+    %ul
+      %li
+        = link_to 'How It Works', how_it_works_path
+      %li
+        = link_to 'Our Writers', our_writers_path
+      %li
+        = link_to 'FAQ', faq_path
+    .contact
+      = mail_to 'essaystation101@gmail.com', 'essaystation101@gmail.com', :class => 'email'
+    .copyright
+      &copy;
+      = Time.now.year
+      EssayStation. All rights reserved
+    .developers
+      Website by
+      = link_to 'Mind Studios', 'http://themindstudios.com/'
+    .text
+
+  .footer-border

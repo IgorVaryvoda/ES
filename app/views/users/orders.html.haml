@@ -1,0 +1,32 @@
+.container-order
+  .user
+    .headline
+      .page-title
+        Orders
+      = link_to '+ NEW ORDER', root_path, :class => 'new'
+    .content
+      %table
+        %tr.head
+          %th.id ID
+          %th Topic
+          %th Deadline
+          %th Price
+          %th Status
+        -@orders.each do |order|
+          %tr.data{'onclick' => "window.location.href = '#{order_path(order)}'"}
+            %td.first= "##{order.id}"
+            %td.topic
+              -if order.topic.nil?
+                = 'No title'
+              -else
+                %span.bold= order.topic
+                %br= "#{order.discipline+', '+order.type_of_paper}"
+            %td.deadline
+              = "#{order.time_left + ' left'}"
+              %br
+              %span.bold
+                = order.get_deadline[0]
+              = order.get_deadline[1]
+            %td= "$#{order.price}"
+            %td= order.show_state
+

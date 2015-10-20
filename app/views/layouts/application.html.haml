@@ -1,0 +1,53 @@
+!!! 5
+%html
+  %head
+    %title Essay
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+    %link{:href => 'http://fonts.googleapis.com/css?family=Open+Sans:600,400,300,700&subset=cyrillic,latin', :rel => 'stylesheet', :type => 'text/css'}
+
+  %body
+    .header
+      .content
+        = link_to '/', :class => 'logo' do
+          = image_tag 'logo.png'
+        -if user_signed_in?
+          = link_to "#{current_user.email}", destroy_user_session_path, :method => :delete, :class => 'account-logout'
+        -else
+          = link_to 'My account', '#', :class => 'account'
+        %ul{:class => "#{'signed' if user_signed_in?}"}
+          -if user_signed_in?
+            %li
+              = link_to 'ORDERS', orders_list_path
+          %li
+            = link_to 'HOW IT WORKS', how_it_works_path
+          %li
+            = link_to 'OUR WRITERS', our_writers_path
+          %li
+            = link_to 'FAQ', faq_path
+
+    .container
+
+      = yield
+  .modal-popup
+    #sign-in.box-modal
+      .box-modal_close.arcticmodal-close.close
+      .content
+        .title Log in
+        .note
+          Please enter your credentials below.
+          %br To sign up please start making an order.
+        = form_for("user", url: user_session_path(:format => :json), html: { id: 'sign_in_form'}) do |f|
+          .errors-form.hidden
+            %span.close-errors X
+          = f.email_field :email, autofocus: true, class: 'sign-btn email-sign-in', placeholder: 'Email'
+          = f.password_field :password, class: 'sign-btn password-sign-in', placeholder: 'Password'
+          = f.submit 'Sign In', :class => 'checkout-btn pop-up', :id => 'sign-in-button'
+        .or
+          .word or
+        = link_to 'Use Facebook To Sign In', user_omniauth_authorize_path(:facebook), :class => 'facebook-btn pop-up'
+        -if !action_name.include?'step_three'
+          = link_to '', orders_list_path, :class => 'hidden after_login'
+
